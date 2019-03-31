@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="header">
+        <h2 class="centre">CRSystem</h2>
+        <p>made with MEAN stack!</p>
+        <p class="page">Registration Page</p>
+    </div>
+    <div class="formContainer">
+        <img src="./image/undraw_profile_pic_ic5t(2).png" alt="">
+        <form  name="registerForm" ng-submit="callRegister()">
+            <input type="text" class="formstyle" placeholder="Name" ng-model="username" name="username" pattern="[a-zA-Z0-9]{6,}"> <br>
+            <span ng-show="registerForm.username.$touched && registerForm.username.$invalid && registerForm.username.$error['required']" class="error">UserName can't be empty!</span>
+            <span ng-show="registerForm.username.$touched && registerForm.username.$invalid && registerForm.username.$error['pattern']" class="error">UserName has invalid format</span>
+
+            <input type="text" class="formstyle" placeholder="lastname" ng-model="lastname" name="lastname" pattern="[0-9a-zA-Z]{3,}"> <br>
+            <span ng-show="registerForm.lastname.$touched && registerForm.lastname.$invalid && registerForm.lastname.$error['required']" class="error">Lastname can't be empty!</span>
+            <span ng-show="registerForm.lastname.$touched && registerForm.lastname.$invalid && registerForm.lastname.$error['pattern']" class="error">Lastname has invalid format</span>
+
+            <input type="email" class="formstyle" placeholder="email" ng-model="email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"> <br>
+            <span ng-show="registerForm.email.$touched && registerForm.email.$invalid && registerForm.email.$error['required']" class="error">email can't be empty!</span>
+            <span ng-show="registerForm.email.$touched && registerForm.email.$invalid && registerForm.email.$error['pattern']" class="error">Email has invalid format</span>
+
+            <input type="password" class="formstyle" placeholder="password" ng-model="password" name="password" pattern="^.{6,}$" required title="Must contain at least 6 characters"> <br>
+            <span ng-show="registerForm.password.$touched && registerForm.password.$invalid && registerForm.password.$error['required']" class="error">Password can't be empty</span>
+            <span ng-show="registerForm.password.$touched && registerForm.password.$invalid && registerForm.password.$error['pattern']" class="error">Must contain at least 6 characters</span>
+
+
+            <button class="formstyle form--button font-weight-bolder">Register</button> <br>
+        </form>
+        <p class="formContainer--register">Already registered?
+            <a ui-sref="login" ui-sref-active="active">Sign In</a></p>
+    </div>
+</div>
