@@ -1,1 +1,2 @@
-MEAN boilerplate/.env
+.env
+node_modules

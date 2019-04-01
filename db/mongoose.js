@@ -3,7 +3,8 @@ require('dotenv').config();
 
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.DATABASE, {
+let dbPath = process.env.DATABASE;
+mongoose.connect(dbPath, {
     useNewUrlParser: true
 });
 

@@ -9,6 +9,8 @@ const cors         = require('cors');
 // ROUTES
 const routes = require('./routes/index');
 const user = require('./routes/api/users');
+// const post = require('./routes/api/post');
+const {Data} = require('./models/post');
 
 const app = express();
 
@@ -32,6 +34,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 // @desc Loads index page
 app.use('/', routes);
 app.use('/api/users', user);
+app.get('/api/post', (req, res) => {
+
+    let sortBy = 'createdAt';
+    let order = 'desc';
+    Data.find()
+    .sort([[sortBy, order]])
+    .exec((err, posts) => { 
+        if(err) return res.status(400).send(err);
+         res.status(200).send(posts);
+     });
+});
 
 app.use(function (req, res){
     res.status(400).send("Oops somehting wrong in url");

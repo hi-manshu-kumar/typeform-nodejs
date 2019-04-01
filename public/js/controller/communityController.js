@@ -3,15 +3,16 @@ app.controller("communityCtrl",function ($scope, authFactory, $location){
     promise.then(data =>{
         console.log(data);
     }, err => {
-        $location.path("/login");
+        // $location.path("/login");
+        console.err(err);
     });
     $scope.msg = "Welcome to the Community Page";
     
-    // let getPostPromise = authFactory.getPost();
-    // getPostPromise.then(data => {
-    //     $scope.imagePath = data.data.posts;
-    // }).catch( err => {
-    //     // $location.path("/login");
+    let getPostPromise = authFactory.getPost();
+    getPostPromise.then(data => {
+        $scope.reccon = data.data;
+    }).catch( err => {
+        console.log(err);
 
-    // });
+    });
 });
