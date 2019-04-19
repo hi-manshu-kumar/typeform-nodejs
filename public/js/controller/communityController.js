@@ -11,7 +11,7 @@ app.controller("communityCtrl",function ($scope, authFactory, $location){
     let getPostPromise = authFactory.getPost();
     getPostPromise.then(data => {
         $scope.reccon = data.data;
-    }).catch( err => {
+        }).catch( err => {
         console.log(err);
 
     });
